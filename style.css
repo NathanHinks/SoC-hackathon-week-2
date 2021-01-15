@@ -3,15 +3,15 @@ blue  #4deeea
 pink #f000ff
 yellow #ffe700
 */
+
 body {
     background-color: black;
     background-position: center center;
-    background-image: url("https://cdn.images.express.co.uk/img/dynamic/130/590x/Easy-quiz-questions-1282929.webp?r=1610179087464");
+    background-image: url("https://www.thisiscolossal.com/wp-content/uploads/2014/03/120430.gif");
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Londrina Shadow', cursive;
 }
-
 
 .container {
     background-color: rgba(00,00,00, 0.6);
@@ -24,6 +24,7 @@ body {
     border-radius: 5%;
     border: 2px solid white;
     text-align: center;
+    height: 500px;
 }
 
 h1 {
@@ -52,6 +53,7 @@ p {
     letter-spacing: 1.5px;
     margin: 30px auto 20px;
     width: 600px;
+    height: 100px;
 }
 
 .btn {

@@ -40,7 +40,6 @@ function compareValue(value){
 
 
 function endGame(){
-    document.body.style.backgroundImage= "url('https://www.thisiscolossal.com/wp-content/uploads/2014/03/120430.gif')"
     //check if score > 5
     if(score > 5) {
         alert("you win")
@@ -69,6 +68,7 @@ let scoreBoard = document.querySelector(".score")
 
 
 function buttonClick(button){
+    document.body.style.backgroundImage= "url('https://cdn.images.express.co.uk/img/dynamic/130/590x/Easy-quiz-questions-1282929.webp?r=1610179087464')"
     compareValue(button);
     questionsRemainingBoard.innerText = `Questions remaining= ${questionsRemaining}`
     scoreBoard.innerText = `Score= ${score}`
