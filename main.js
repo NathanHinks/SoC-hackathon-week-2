@@ -7,7 +7,11 @@ let questionsRemaining = 10;
 let currentAnswer = undefined
 
 function displayQuestion(questionText) {
-    //change the text
+    //remove random characters (thanks Liam! :D)
+    questionText = questionText.replace(
+        /&#039|&rsquo;|&quot;|&#39;|;/g,
+        ""
+      );
     question.innerText = questionText;
 }
 
