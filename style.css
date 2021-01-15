@@ -40,7 +40,7 @@ p {
 .scoreBoard {
     background: black;
     color: #ffe700;
-    border: 2px solid #f000ff;
+    border: 2px solid #c96ccf;
     width: 400px;
     margin: auto;
 }
@@ -49,4 +49,21 @@ p {
     font-size: 20px;
     font-family: 'Russo One', sans-serif;
     letter-spacing: 1px;
+}
+
+.btn {
+    background-color: black;
+    border: 2px solid black;
+    color: #c96ccf;
+    font-size: 20px;
+    padding: 10px 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    margin: 14px;
+    border-radius: 40%;
+}
+
+.btn:hover {
+    color: #4deeea;
+    border: 2px solid #4deeea;
 }
