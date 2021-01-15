@@ -1,21 +1,26 @@
+/*colors!!! 
+blue  #4deeea
+pink #f000ff
+yellow #ffe700
+*/
 body {
     background-color: black;
     background-position: center center;
     background-image: url("https://cdn.images.express.co.uk/img/dynamic/130/590x/Easy-quiz-questions-1282929.webp?r=1610179087464");
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Potta One', cursive;
 }
 
 
 .container {
-    background-color: black;
+    background-color: rgba(00,00,00, 0.6);
     width: 600px;
     margin: auto;
     margin-top: 300px;
     margin-bottom: 300px;
     color: white;
-    opacity: 0.7;
-    padding: 50px;
+    padding: 0 50px 50px;
     border-radius: 5%;
     border: 2px solid white;
     text-align: center;
@@ -24,6 +29,7 @@ body {
 h1 {
     opacity: 1;
     font-size: 75px;
-
+    color: #4deeea;
+    margin: 60px 0 0 0;
 }
 
