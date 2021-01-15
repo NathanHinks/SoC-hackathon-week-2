@@ -6,3 +6,5 @@ if answer wrong, alert "you suck"
 display score
 game ends after 5 scores or you reached 10 questions. 
 display you win or you lost
+display how many questions there are left
+add time for each question /10 sec
