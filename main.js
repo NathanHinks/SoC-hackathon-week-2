@@ -13,9 +13,8 @@ function displayQuestion(questionText) {
 
 
 async function getData(){
-    let response =  await fetch("https://opentdb.com/api.php?amount=5&type=boolean");
+    let response =  await fetch("https://opentdb.com/api.php?amount=1&category=9&type=boolean");
     let data = await response.json();
-    // console.log(data.results[0]);
     currentAnswer = data.results[0].correct_answer;
     // console.log(currentAnswer);
     displayQuestion(data.results[0].question)
@@ -44,9 +43,17 @@ function endGame(){
     else {
         alert("you lose, you suck")
     }
-    //confirm if want to play again.
-    confirm("do you want to play again?")
 }
+
+function resetGame() {
+    score = 0
+    questionsRemaining = 10
+    //update inntext
+    questionsRemainingBoard.innerText = questionsRemaining
+    scoreBoard.innerText = score
+    getData()
+}
+
 //callback function that takes in value of the button
 //call the campareValue function with the value of the button as a parameter. 
 //update the score display to have the new score
@@ -62,6 +69,15 @@ function buttonClick(button){
     scoreBoard.innerText = score
     getData()
     
+    if(score > 5 || questionsRemaining === 0) {
+        endGame()
+        //confirm if want to play again.
+        let result = confirm("Play again?")
+        if(result === true) {
+            //reset game
+            resetGame()
+        }
+    }
 }
 
 let buttonTrue = document.querySelector(".btnTrue");
