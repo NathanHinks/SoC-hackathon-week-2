@@ -40,7 +40,10 @@ const questionTimer = () => {
             
             questionsRemaining--;
             displayQuestionRemaining();
-            getData();
+            
+            if(score > 5 || questionsRemaining === 0) endGame();
+            else getData();
+
             clearInterval(timer);
         }
     }, 1000);

@@ -9,7 +9,12 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    color: whitesmoke;
     font-family: 'Londrina Shadow', cursive;
+}
+
+p {
+    font-family: 'Press Start 2P', cursive;
 }
 
 .container {
@@ -17,7 +22,6 @@ body {
     border-radius: 5%;
     border: 2px solid white;
     box-shadow: 1px 1px 5px 3px var(--pink), 5px 5px 5px 2.5px var(--blue);
-    color: white;
     margin: 5% auto;
     max-width: 800px;
     text-align: center;
@@ -28,10 +32,6 @@ h1 {
     font-size: 75px;
     color: var(--blue);
     margin: 5% 0;
-}
-
-p {
-    font-family: 'Press Start 2P', cursive;
 }
 
 .scoreBoard {
@@ -49,19 +49,23 @@ p {
 
 .countdownDisplay{
     color: rgb(161, 9, 9);
-    font-size: 17px;
+    font-size: 18px;
 }
 
 .question {
+    align-items: center;
     background: rgba(00,00,00, 0.4);
     border-bottom: 2px solid var(--yellow);
     border-radius: 20%;
     border-top: 2px solid var(--yellow);
+    display: flex;
     font-family: 'Russo One', sans-serif;
     font-size: 25px;
+    justify-content: center;
     letter-spacing: 2px;
     line-height: 1.5;
     margin: 8% auto;
+    min-height: 150px;
     padding: 2% 5%;
     transition: all .5s ease-in-out;
     width: 80%;
