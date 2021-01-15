@@ -32,10 +32,21 @@ function compareValue(value){
     if(value == currentAnswer){
         score++
     }
-    
     questionsRemaining--
 }
 
+
+function endGame(){
+    //check if score > 5
+    if(score > 5) {
+        alert("you win")
+    }
+    else {
+        alert("you lose, you suck")
+    }
+    //confirm if want to play again.
+    confirm("do you want to play again?")
+}
 //callback function that takes in value of the button
 //call the campareValue function with the value of the button as a parameter. 
 //update the score display to have the new score
