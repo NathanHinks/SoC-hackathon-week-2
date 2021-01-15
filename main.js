@@ -49,8 +49,8 @@ function resetGame() {
     score = 0
     questionsRemaining = 10
     //update inntext
-    questionsRemainingBoard.innerText = questionsRemaining
-    scoreBoard.innerText = score
+    questionsRemainingBoard.innerText = `Questions remaining= ${questionsRemaining}`
+    scoreBoard.innerText = `Score= ${score}`
     getData()
 }
 
@@ -65,8 +65,8 @@ let scoreBoard = document.querySelector(".score")
 
 function buttonClick(button){
     compareValue(button);
-    questionsRemainingBoard.innerText = questionsRemaining
-    scoreBoard.innerText = score
+    questionsRemainingBoard.innerText = `Questions remaining= ${questionsRemaining}`
+    scoreBoard.innerText = `Score= ${score}`
     getData()
     
     if(score > 5 || questionsRemaining === 0) {

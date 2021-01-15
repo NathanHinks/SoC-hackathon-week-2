@@ -1,0 +1,29 @@
+body {
+    background-color: black;
+    background-position: center center;
+    background-image: url("https://cdn.images.express.co.uk/img/dynamic/130/590x/Easy-quiz-questions-1282929.webp?r=1610179087464");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.container {
+    background-color: black;
+    width: 600px;
+    margin: auto;
+    margin-top: 300px;
+    margin-bottom: 300px;
+    color: white;
+    opacity: 0.7;
+    padding: 50px;
+    border-radius: 5%;
+    border: 2px solid white;
+    text-align: center;
+}
+
+h1 {
+    opacity: 1;
+    font-size: 75px;
+
+}
+
