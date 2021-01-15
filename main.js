@@ -1,16 +1,20 @@
 //DOM
-const question = document.querySelector(".question");
-const questionsRemainingBoard = document.querySelector(".questionsRemaining")
-const scoreBoard = document.querySelector(".score")
+const questionDisplay = document.querySelector(".question");
+const questionsRemainingDisplay = document.querySelector(".questionsRemaining");
+const scoreDisplay = document.querySelector(".score");
+const countdownDisplay = document.querySelector(".countdownDisplay");
 
 //variables
-let countdown = 10
+let countdown = 10;
 let score = 0;
 let questionsRemaining = 10;
-let currentAnswer = undefined
+let currentAnswer = undefined;
 
+//for interval clearing
 let timer;
 
+const displayQuestionRemaining = () => questionsRemainingDisplay.innerText = `Questions Remaining: ${questionsRemaining}`;
+const displayScore = () => scoreDisplay.innerText = `Score: ${score}`;
 
 const  displayQuestion = (questionText) => {
     //remove random characters
@@ -19,44 +23,67 @@ const  displayQuestion = (questionText) => {
         ""
       );
 
-    question.innerText = questionText;
+    questionDisplay.innerText = questionText;
+}
+
+
+const questionTimer = () => {
+    clearInterval(timer);
+    countdown= 10;
+
+    timer = setInterval(() => {
+        countdown--;
+        countdownDisplay.innerText = `Time Remaining: ${countdown}s`;
+        
+        if(countdown <= 0) {
+            countdownDisplay.innerText = "OUT OF TIME!";
+            
+            questionsRemaining--;
+            displayQuestionRemaining();
+            getData();
+            clearInterval(timer);
+        }
+    }, 1000);
+}
+
+
+const buttonClick = (button) => {
+    clearInterval(timer);
+    compareValue(button);
+
+    displayQuestionRemaining();
+    displayScore();
+
+    if(score > 5 || questionsRemaining === 0) endGame();
+    else getData();
 }
 
 const compareValue = (value) => {
-    if (value === currentAnswer) score++
+    if (value === currentAnswer) score++;
     
-    questionsRemaining--
+    questionsRemaining--;
 }
 
 const endGame = () => {
-    if(score > 5) alert("you win")
-    else alert("you lose")
+    score > 5 ? alert("you win") : alert("you lose");
+
+    buttonTrue.style.display = "none";
+    buttonFalse.style.display = "none";
+
+    playAgain.style.display = "block";
 }
 
 const resetGame = () => {
-    score = 0
-    questionsRemaining = 10
-
-    questionsRemainingBoard.innerText = `Questions Remaining: ${questionsRemaining}`
-    scoreBoard.innerText = `Score: ${score}`
+    score = 0;
+    questionsRemaining = 10;
+    displayQuestionRemaining();
+    displayScore();
     
-    getData()
-}
+    buttonTrue.style.display = "block";
+    buttonFalse.style.display = "block";
+    playAgain.style.display = "none";
 
-const buttonClick = (button) => {
-    compareValue(button);
-
-    questionsRemainingBoard.innerText = `Questions remaining= ${questionsRemaining}`
-    scoreBoard.innerText = `Score= ${score}`
-
-    getData()
-    
-    if(score > 5 || questionsRemaining === 0) {
-        endGame()
-        
-        const result = confirm("Play again?")
-        if (result === true) resetGame()
-    }
+    getData();
 }
 
 
@@ -66,18 +93,19 @@ async function getData(){
     let data = await response.json();
     
     currentAnswer = data.results[0].correct_answer;
-    displayQuestion(data.results[0].question)
-}   
+    displayQuestion(data.results[0].question);
 
-//first call
+    //timer
+    questionTimer();
+}   
 getData();
 
 
 const buttonTrue = document.querySelector(".btnTrue");
-buttonTrue.addEventListener("click", () => buttonClick("True"))
+buttonTrue.addEventListener("click", () => buttonClick("True"));
 
 const buttonFalse = document.querySelector(".btnFalse");
-buttonFalse.addEventListener("click", () => buttonClick("False")) 
+buttonFalse.addEventListener("click", () => buttonClick("False")); 
 
-
-
+const playAgain = document.querySelector(".playAgain")
+playAgain.addEventListener("click", resetGame);

@@ -47,6 +47,11 @@ p {
     width: 80%;
 }
 
+.countdownDisplay{
+    color: rgb(161, 9, 9);
+    font-size: 17px;
+}
+
 .question {
     background: rgba(00,00,00, 0.4);
     border-bottom: 2px solid var(--yellow);
@@ -58,6 +63,7 @@ p {
     line-height: 1.5;
     margin: 8% auto;
     padding: 2% 5%;
+    transition: all .5s ease-in-out;
     width: 80%;
 }
 
@@ -83,4 +89,15 @@ p {
     box-shadow: none;
     color: var(--blue);
     border: 2px solid var(--blue);
+}
+
+.playAgain {
+    box-shadow: 1px 1px 3px 1px var(--blue);
+    color: var(--blue);
+    display: none;
+    margin: auto;
+}
+.playAgain:hover {
+    color: var(--pink);
+    border: 2px solid var(--pink);
 }
