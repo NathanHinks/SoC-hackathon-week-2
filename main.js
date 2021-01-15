@@ -20,16 +20,11 @@ async function getData(){
     let response =  await fetch("https://opentdb.com/api.php?amount=1&category=9&type=boolean");
     let data = await response.json();
     currentAnswer = data.results[0].correct_answer;
-    // console.log(currentAnswer);
     displayQuestion(data.results[0].question)
 }   
 
 getData();
 
-//button click function. it should compara answer with getData result, increase score, new question. 
-
-// function check text content of button === data response
-// extract var with the boolean for current question 
 
 function compareValue(value){
     if(value == currentAnswer){
@@ -52,16 +47,11 @@ function endGame(){
 function resetGame() {
     score = 0
     questionsRemaining = 10
-    //update inntext
+
     questionsRemainingBoard.innerText = `Questions remaining= ${questionsRemaining}`
     scoreBoard.innerText = `Score= ${score}`
     getData()
 }
-
-//callback function that takes in value of the button
-//call the campareValue function with the value of the button as a parameter. 
-//update the score display to have the new score
-//questions remaining must decrease and change the display 
 
 let questionsRemainingBoard = document.querySelector(".questionsRemaining")
 let scoreBoard = document.querySelector(".score")
