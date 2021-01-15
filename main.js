@@ -40,6 +40,7 @@ function compareValue(value){
 
 
 function endGame(){
+    document.body.style.backgroundImage= "url('https://www.thisiscolossal.com/wp-content/uploads/2014/03/120430.gif')"
     //check if score > 5
     if(score > 5) {
         alert("you win")
