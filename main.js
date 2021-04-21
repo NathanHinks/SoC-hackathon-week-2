@@ -28,6 +28,9 @@ const  displayQuestion = (questionText) => {
 
 const checkGameOver = () => score > 5 || questionsRemaining === 0 ? endGame() : getData();
 
+const hideBtns = (...btns) => btns.forEach(btn => btn.classList.add("hidden"));
+const showBtns = (...btns) => btns.forEach(btn => btn.classList.remove("hidden"));
+
 const questionTimer = () => {
     clearInterval(timer);
     countdown= 10;
@@ -69,9 +72,8 @@ const compareValue = (value) => {
 const endGame = () => {
     score > 5 ? alert("you win") : alert("you lose");
 
-    buttonTrue.classList.add("hidden")
-    buttonFalse.classList.add("hidden")
-    playAgain.classList.remove("hidden");
+    hideBtns(buttonTrue, buttonFalse);
+    showBtns(playAgain);
 }
 
 const resetGame = () => {
@@ -80,9 +82,8 @@ const resetGame = () => {
     displayQuestionRemaining();
     displayScore();
     
-    buttonTrue.classList.remove("hidden")
-    buttonFalse.classList.remove("hidden")
-    playAgain.classList.add("hidden");
+    showBtns(buttonTrue, buttonFalse);
+    hideBtns(playAgain);
 
     getData();
 }
