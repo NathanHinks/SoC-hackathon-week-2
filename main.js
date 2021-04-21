@@ -41,8 +41,7 @@ const questionTimer = () => {
             questionsRemaining--;
             displayQuestionRemaining();
             
-            if(score > 5 || questionsRemaining === 0) endGame();
-            else getData();
+            score > 5 || questionsRemaining === 0 ? endGame() : getData();
 
             clearInterval(timer);
         }
@@ -57,8 +56,7 @@ const buttonClick = (button) => {
     displayQuestionRemaining();
     displayScore();
 
-    if(score > 5 || questionsRemaining === 0) endGame();
-    else getData();
+    score > 5 || questionsRemaining === 0 ? endGame() : getData();
 }
 
 const compareValue = (value) => {
@@ -70,10 +68,9 @@ const compareValue = (value) => {
 const endGame = () => {
     score > 5 ? alert("you win") : alert("you lose");
 
-    buttonTrue.style.display = "none";
-    buttonFalse.style.display = "none";
-
-    playAgain.style.display = "block";
+    buttonTrue.classList.add("hidden")
+    buttonFalse.classList.add("hidden")
+    playAgain.classList.remove("hidden");
 }
 
 const resetGame = () => {
@@ -82,9 +79,9 @@ const resetGame = () => {
     displayQuestionRemaining();
     displayScore();
     
-    buttonTrue.style.display = "block";
-    buttonFalse.style.display = "block";
-    playAgain.style.display = "none";
+    buttonTrue.classList.remove("hidden")
+    buttonFalse.classList.remove("hidden")
+    playAgain.classList.add("hidden");
 
     getData();
 }
