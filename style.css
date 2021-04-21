@@ -101,8 +101,10 @@ h1 {
     display: none;
     margin: auto;
 }
-.playAgain:hover {
+.playAgain:hover,
+.playAgain:focus {
     color: var(--pink);
+    cursor: pointer;
     border: 2px solid var(--pink);
 }
 
