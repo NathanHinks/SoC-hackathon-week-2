@@ -26,6 +26,7 @@ const  displayQuestion = (questionText) => {
     questionDisplay.innerText = questionText;
 }
 
+const checkGameOver = () => score > 5 || questionsRemaining === 0 ? endGame() : getData();
 
 const questionTimer = () => {
     clearInterval(timer);
@@ -41,7 +42,7 @@ const questionTimer = () => {
             questionsRemaining--;
             displayQuestionRemaining();
             
-            score > 5 || questionsRemaining === 0 ? endGame() : getData();
+            checkGameOver()
 
             clearInterval(timer);
         }
@@ -56,7 +57,7 @@ const buttonClick = (button) => {
     displayQuestionRemaining();
     displayScore();
 
-    score > 5 || questionsRemaining === 0 ? endGame() : getData();
+    checkGameOver();
 }
 
 const compareValue = (value) => {
